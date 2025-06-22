@@ -1,9 +1,10 @@
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'
 import { LabCard } from './components/labCard';
 
 export function Home() {
     return (
-        <View style={{flex: 1}}>
+        <View style={{flex: 1, backgroundColor: 'white'}}>
             <View style={styles.header}>
                 <Image
                     style={styles.logo}
@@ -18,6 +19,11 @@ export function Home() {
                     />
                 </TouchableOpacity>
             </View>
+
+            <TouchableOpacity style={styles.addLab}>
+                <Ionicons name='add' size={25}/>
+                <Text style={{fontSize: 20, color: '#224411'}}>Adicionar Laboratório</Text>
+            </TouchableOpacity>
 
             <View>
                 <LabCard />
@@ -45,10 +51,17 @@ const styles = StyleSheet.create({
     profile:{
         height: 70,
         width: 70,
-        marginRight: 10,
         border: '1px solid gray',
         borderRadius: 50,
 
+    },
+
+    addLab:{
+        margin:40,
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        alignItems: "center",
+        gap: 8
     }
 
 
