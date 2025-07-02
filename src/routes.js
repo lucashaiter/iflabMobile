@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { StyleSheet } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
+import { StyleSheet, Image } from 'react-native'
 
 import { Home } from './pages/home'
 import { Calendar } from './pages/calendar'
@@ -16,8 +15,8 @@ export function Routes(){
                     backgroundColor: "F2F2F2",
                     justifyContent: "space-between",
                     height: 60,
-                    borderTopLeftRadius: 20,
-                    borderTopRightRadius: 20,
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
                     position: "absolute",
             
                 }
@@ -29,12 +28,13 @@ export function Routes(){
                 options={{
                     headerShown: false,
                     tabBarShowLabel: false,
-                    tabBarIcon: ({ focused, size}) => {
+                    tabBarIcon: ({ focused }) => {
                         if(focused){
-                            return <Ionicons style={{color: "black"}} size={size} name="home"/>
+                            return <Image source={require('../src/assets/icons/UI/home.png')} style={{width: 30, height: 30, marginTop: 20}}/>
                         }
+                        return <Image source={require('../src/assets/icons/UI/home.png')} style={{width: 30, height: 30, marginTop: 20, opacity: 0.75}}/>
 
-                        return <Ionicons size={size} name="home-outline"/>
+                        
                     }
                 }}
             />
@@ -44,14 +44,12 @@ export function Routes(){
                 options={{
                     headerShown: false,
                     tabBarShowLabel: false,
-                    tabBarIcon: ({ focused, size }) => {
+                    tabBarIcon: ({ focused }) => {
                         if(focused){
-                            return <Ionicons style={{color: "black"}} size={size} name="calendar-clear"/>
+                            return <Image source={require('../src/assets/icons/UI/schedule.png')} style={{width: 30, height: 30, marginTop: 20}}/>
                         }
-
-                        return <Ionicons size={size} name="calendar-clear-outline"/>
-                    }
-                }}
+                        return <Image source={require('../src/assets/icons/UI/schedule.png')} style={{width: 30, height: 30, marginTop: 20, opacity: 0.75}}/>
+                }}}
             />
             <Tab.Screen
                 name="user"
@@ -59,14 +57,12 @@ export function Routes(){
                 options={{
                     headerShown: false,
                     tabBarShowLabel: false,
-                    tabBarIcon: ({ focused, size }) => {
+                    tabBarIcon: ({ focused }) => {
                         if(focused){
-                            return <Ionicons style={{color: "black"}} size={size} name="person"/>
+                            return <Image source={require('../src/assets/icons/UI/user.png')} style={{width: 30, height: 30, marginTop: 20}}/>
                         }
-
-                        return <Ionicons size={size} name="person-outline"/>
-                    }
-                }}
+                        return <Image source={require('../src/assets/icons/UI/user.png')} style={{width: 30, height: 30, marginTop: 20, opacity: 0.75}}/>
+                }}}
             />
         </Tab.Navigator>
     )

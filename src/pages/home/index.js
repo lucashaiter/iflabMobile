@@ -1,6 +1,5 @@
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'
-import { LabCard } from './components/labCard';
+import { LabCard } from '../../components/cards/labCard';
 
 export function Home() {
     return (
@@ -9,20 +8,19 @@ export function Home() {
                 <Image
                     style={styles.logo}
                     resizeMode="contain"
-                    source={require('../../assets/Logo.png')}
+                    source={require('../../assets/images/logo.png')}
                 />
                 <TouchableOpacity onPress={() => alert('Profile clicked!')} style={{padding: 10}}>
                     <Image
                         style={styles.profile}
                         resizeMode="contain"
-                        source={require('../../assets/Profile.png')}    
+                        source={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbEoIDDTF3gIBblJPNp26fKhznRioZ-nK_5JCNwQjmNnZ3AzBJFdoO2lEgNSYuEAF1mh0&usqp=CAU"}
                     />
                 </TouchableOpacity>
             </View>
 
             <TouchableOpacity style={styles.addLab}>
-                <Ionicons name='add' size={25}/>
-                <Text style={{fontSize: 20, color: '#224411'}}>Adicionar Laboratório</Text>
+                <Text style={{fontSize: 18, color: '#224411'}}><Text style={{textAlign: 'center', fontSize: 21}}>+</Text> Adicionar Laboratório</Text>
             </TouchableOpacity>
 
             <View>
@@ -44,20 +42,22 @@ const styles = StyleSheet.create({
     },
 
     logo:{
-        width: 120,
+        width: 100,
         marginLeft: 10,
     },
 
     profile:{
-        height: 70,
-        width: 70,
-        border: '1px solid gray',
+        height: 50,
+        width: 50,
         borderRadius: 50,
+        filter: 'drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.25))'
 
     },
 
     addLab:{
-        margin:40,
+        marginRight:15,
+        marginTop: 30,
+        marginBottom: 40,
         flexDirection: "row",
         justifyContent: "flex-end",
         alignItems: "center",
