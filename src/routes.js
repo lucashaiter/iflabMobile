@@ -18,6 +18,7 @@ export function Routes(){
                     borderTopLeftRadius: 0,
                     borderTopRightRadius: 0,
                     position: "absolute",
+                    paddingBottom: 15
             
                 }
             }}
