@@ -2,17 +2,16 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 export function Calendar() {
     return (
-        <View style={{flex: 1, backgroundColor: 'red'}}>
+        <View style={{flex: 1, backgroundColor: 'white'}}>
             <View styles={styles.header}>
                 <Image
                     style={styles.cabecalho}
+                    resizeMode="center"
                     source={require('../../assets/icons/UI/left.png')}
                 />
-                <text>aaaa</text>
+                <Text style={styles.titleFree}>Calendário do laboratório <Text style={{fontWeight: 'bold'}}>A108</Text> </Text>
             </View>
-            <text>aaa</text>
-        </View>,
-        <text> aaaa</text>
+        </View>
     );
 }
 
@@ -27,7 +26,14 @@ const styles = StyleSheet.create({
     },
 
     cabecalho:{
-        marginleft: 10
-    }
+        marginleft: 10,
+        width: 50,
+        tintColor: 'black',
+    },
 
+    titleFree: {
+        fontSize: 20,
+        fontWeight: 'normal',
+        fontFamily: 'Inter',
+    }
 });
