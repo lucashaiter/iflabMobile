@@ -1,5 +1,7 @@
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { LabCard } from '../../components/cards/labCard';
+import { LabCardBusy } from '../../components/cards/labCardBusy';
+import { LabCardFree } from '../../components/cards/labCardFree';
+import { BottomSheet } from '../../components/sheet/bottomSheet';
 
 export function Home() {
     return (
@@ -24,7 +26,7 @@ export function Home() {
             </TouchableOpacity>
 
             <View>
-                <LabCard />
+                <LabCardBusy />
             </View>
         </View>
 
