@@ -3,13 +3,15 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaVie
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user_email, setUserEmail] = useState('');
+  const [user_password, setUserPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
 
+      {/* Logo */}
       <View style={styles.logoContainer}>
         <Image
           source={require('../../assets/images/logo.png')}
@@ -18,50 +20,70 @@ export default function LoginScreen() {
         />
       </View>
 
+      {/* Inputs */}
       <View style={styles.middleContainer}>
         <Text style={styles.subtitle}>Digite suas informações</Text>
 
+        {/* Email */}
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
             placeholder="Email"
             placeholderTextColor="#999"
-            value={email}
-            onChangeText={setEmail}
+            value={user_email}
+            onChangeText={setUserEmail}
           />
-          <Icon name="email-outline" size={20} color="#555" style={styles.inputIcon} />
+          <Image
+            source={require('../../assets/icons/UI/email.png')}
+            style={styles.iconImage}
+            resizeMode="contain"
+          />
         </View>
 
+        {/* Senha */}
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
             placeholder="Senha"
             placeholderTextColor="#999"
             secureTextEntry={!showPassword}
-            value={password}
-            onChangeText={setPassword}
+            value={user_password}
+            onChangeText={setUserPassword}
           />
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-            <Icon
-              name={showPassword ? "eye-off-outline" : "eye-outline"}
-              size={20}
-              color="#555"
-              style={styles.inputIcon}
+            <Image
+              source={
+                showPassword
+                  ? require('../../assets/icons/UI/show.png')
+                  : require('../../assets/icons/UI/hide.png')
+              }
+              style={styles.iconImage}
+              resizeMode="contain"
             />
           </TouchableOpacity>
         </View>
 
+        {/* Checkbox + Esqueceu senha */}
         <View style={styles.row}>
-          <View style={styles.checkboxContainer}>
-            <Icon name="checkbox-blank-outline" size={16} color="#555" />
+          <TouchableOpacity
+            style={styles.checkboxContainer}
+            onPress={() => setRememberMe(!rememberMe)}
+          >
+            <Icon
+              name={rememberMe ? 'checkbox-marked' : 'checkbox-blank-outline'}
+              size={18}
+              color="#1B360F"
+            />
             <Text style={styles.checkboxText}> Lembrar senha</Text>
-          </View>
+          </TouchableOpacity>
+
           <TouchableOpacity>
             <Text style={styles.forgotText}>Esqueceu sua senha?</Text>
           </TouchableOpacity>
         </View>
       </View>
 
+      {/* Botão e Registro */}
       <View style={styles.bottomContainer}>
         <TouchableOpacity style={styles.loginButton}>
           <Text style={styles.loginButtonText}>Logar</Text>
@@ -113,7 +135,9 @@ const styles = StyleSheet.create({
     height: 40,
     color: '#000',
   },
-  inputIcon: {
+  iconImage: {
+    width: 22,
+    height: 22,
     marginLeft: 10,
   },
   row: {
@@ -129,6 +153,7 @@ const styles = StyleSheet.create({
   checkboxText: {
     color: '#555',
     fontSize: 12,
+    marginLeft: 6,
   },
   forgotText: {
     color: '#1B360F',
