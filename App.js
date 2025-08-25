@@ -6,10 +6,16 @@ import { Routes } from "./src/routes";
 import { NavigationContainer } from "@react-navigation/native";
 
 
-export default function App(){
+/*export default function App(){
   return(
     <NavigationContainer style={{ flex: 1 }}> 
       <Routes />
     </NavigationContainer>
   )
+}*/
+
+import LoginScreen from './src/pages/login';
+export default function App() {
+  return <LoginScreen />;
 }
+
