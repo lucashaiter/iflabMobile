@@ -1,16 +1,15 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { Routes } from './src/routes'
-import LoginScreen from './src/pages/login';
-import { BottomSheet } from './src/components/sheet/bottomSheet';
+/*import "react-native-gesture-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { View } from "react-native";*/
 
-/*export default function App() {
-  return <LoginScreen />;
-}*/
+import { Routes } from "./src/routes";
+import { NavigationContainer } from "@react-navigation/native";
+
 
 export default function App(){
   return(
-    <NavigationContainer>
-      <BottomSheet/>
+    <NavigationContainer style={{ flex: 1 }}> 
+      <Routes />
     </NavigationContainer>
   )
 }

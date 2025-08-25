@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { LabCardBusy } from '../../components/cards/labCardBusy';
-import { LabCardFree } from '../../components/cards/labCardFree';
 import { BottomSheet } from '../../components/sheet/bottomSheet';
 
 export function Home() {
+    const [isSheetOpen, setIsSheetOpen] = useState(false);
+    
+    function toogleSheet(){
+        setIsSheetOpen((prevState) => !prevState)
+    }
+
     return (
         <View style={{flex: 1, backgroundColor: 'white'}}>
             <View style={styles.header}>
@@ -21,9 +27,10 @@ export function Home() {
                 </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.addLab}>
+            <TouchableOpacity style={styles.button} onPress={toogleSheet}>
                 <Text style={{fontSize: 18, color: '#224411'}}><Text style={{textAlign: 'center', fontSize: 21}}>+</Text> Adicionar Laboratório</Text>
             </TouchableOpacity>
+            {isSheetOpen && <BottomSheet onClose={toogleSheet}/>}
 
             <View>
                 <LabCardBusy />
@@ -64,6 +71,24 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         alignItems: "center",
         gap: 8
+    },
+
+    container: {
+        flex: 1,
+        backgroundColor: 'black',
+    },
+
+    button:{
+        marginRight: 10,
+        marginTop: 20,
+        marginBottom: 20,
+        alignSelf: 'flex-end',
+    },
+
+    image:{
+        width: 32,
+        height: 32,
+        tintColor: '#022',
     }
 
 
