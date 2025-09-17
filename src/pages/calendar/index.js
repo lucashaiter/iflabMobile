@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { DataSelection } from '../../components/cards/DataSelection';
-import { Sections } from '../../components/cards/sections';
+import { Sections } from '../../components/cards/Sections';
 
 export function Calendar() {
     return (
@@ -20,8 +20,8 @@ export function Calendar() {
                 <DataSelection />
             </View>
             <View>
-                <View style={{marginBottom: 5, marginLeft: 20, flex: 1, zIndex: -1}}>
-                    <Text style={styles.TextFont}>Sessões em andamento:</Text>
+                <View style={{marginBottom: 5, marginLeft: 20, marginRight: 20, flex: 1, zIndex: -1}}>
+                    <Text style={[styles.TextFont, {marginBottom: 10}]}>Sessões em andamento:</Text>
                     <Sections />
                 </View>
             </View>
